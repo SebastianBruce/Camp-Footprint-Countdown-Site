@@ -5,11 +5,12 @@ body {
   .wrap {
     position: absolute;
     bottom: 0;
-    top: 0;
+    top: -30vh;
     left: 0;
     right: 0;
     margin: auto;
     height: 310px;
+    text-align: center;
   }
   
   a {
@@ -25,7 +26,7 @@ body {
   }
   h1 strong {
     font-weight: 400;
-    color: #ea4c4c;
+    color: #124067;
   }
   
   h2 {
@@ -39,14 +40,15 @@ body {
   }
   
   .countdown {
-    width: 720px;
+    width: 100vw;
     margin: 0 auto;
   }
   .countdown .bloc-time {
-    float: left;
-    margin-right: 45px;
+    display: inline-block;
+    margin-right: 20px;
     text-align: center;
   }
+  
   .countdown .bloc-time:last-child {
     margin-right: 0;
   }
@@ -79,7 +81,7 @@ body {
     margin: auto;
     font: normal 5.94em/107px "Lato";
     font-weight: 700;
-    color: #de4848;
+    color: #124067;
   }
   .countdown .figure .top:after, .countdown .figure .bottom-back:after {
     content: "";
