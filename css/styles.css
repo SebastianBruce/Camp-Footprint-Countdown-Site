@@ -273,3 +273,12 @@ h2 strong {
     margin: 0 10px 0 10px;
   }
 }
+@media only screen and (max-height: 750px) {
+  .camp-content {
+    display: block; /* Revert to block behavior */
+    justify-content: initial; /* Cancel out justify-content */
+    align-items: initial; /* Cancel out align-items */
+    height: auto; /* Cancel out height */
+    flex-direction: row; /* Cancel out flex-direction */
+  }
+}
