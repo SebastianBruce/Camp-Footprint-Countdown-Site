@@ -1,5 +1,5 @@
 body {
-  background-image: url('verdant-pine-trees-in-foggy-forest-6uj7vu5u6qcuxlsv.jpg');
+  background-image: url('../assets/580048-fog-foggy-forest.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -33,7 +33,7 @@ iframe {
 h1 {
   margin-bottom: 30px;
   text-align: center;
-  font: 300 2.25em "Lato";
+  font: normal 2.25em "Lato";
   text-transform: uppercase;
 }
 
@@ -54,7 +54,7 @@ h1 {
 h2 {
   margin-bottom: 80px;
   text-align: center;
-  font: 300 0.7em "Lato";
+  font: normal 0.7em "Lato";
   text-transform: uppercase;
 }
 
@@ -226,7 +226,7 @@ h2 strong {
 /* Media Queries for Mobile */
 @media only screen and (max-width: 768px) {
   body {
-    background-image: url('cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL2hpcHBvdW5pY29ybl9waG90b19vZl9waW5lX2ZvcmVzdF93YWxscGFwZXJfNjM1MThjMWEtOWRiOC00OGMxLWI5NzMtOTg0YTY2YTM2NWExXzEuanBn.webp');
+    background-image: url('../assets/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL2hpcHBvdW5pY29ybl9waG90b19vZl9waW5lX2ZvcmVzdF93YWxscGFwZXJfNjM1MThjMWEtOWRiOC00OGMxLWI5NzMtOTg0YTY2YTM2NWExXzEuanBn.webp');
   }
 
   .wrap, .wrap2 {
@@ -243,7 +243,15 @@ h2 strong {
     margin: 2vh 0;
   }
 
-  .countdown .bloc-time {
-    margin: 0 10px 0 10px;
+  a {
+    color: rgb(241, 241, 231);
+  }
+
+  a:visited {
+    color: rgb(173, 173, 173);
+  }
+
+  .countdown .bloc-time:first-child {
+    margin: 0 0 0 0;
   }
 }
