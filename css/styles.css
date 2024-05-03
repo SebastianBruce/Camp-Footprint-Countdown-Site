@@ -5,7 +5,7 @@ body {
 }
 
 .wrap, .wrap2 {
-  margin: 5vh auto auto auto;
+  padding: 5vh auto auto auto;
   height: auto; /* Adjusted for mobile */
   text-align: center;
 }
@@ -35,6 +35,7 @@ h1 {
   text-align: center;
   font: normal 2.25em "Lato";
   text-transform: uppercase;
+  padding: 0 10px;
 }
 
 .wrap2 h1 {
@@ -229,9 +230,18 @@ h2 strong {
     background-image: url('../assets/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL2hpcHBvdW5pY29ybl9waG90b19vZl9waW5lX2ZvcmVzdF93YWxscGFwZXJfNjM1MThjMWEtOWRiOC00OGMxLWI5NzMtOTg0YTY2YTM2NWExXzEuanBn.webp');
   }
 
-  .wrap, .wrap2 {
-      margin-top: 10px;
+  h1 {
+    margin: 0 0 10px !important;
   }
+
+  .camp-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column; /* Align items vertically */
+  }
+
 
   .iframe-container {
     display: none;
@@ -251,7 +261,15 @@ h2 strong {
     color: rgb(173, 173, 173);
   }
 
+  .countdown {
+    margin-bottom: 10px;
+  }
+
   .countdown .bloc-time:first-child {
     margin: 0 0 0 0;
+  }
+
+  .countdown .bloc-time:not(:first-child) {
+    margin: 0 10px 0 10px;
   }
 }
