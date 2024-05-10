@@ -4,6 +4,13 @@ body {
   background-repeat: no-repeat;
 }
 
+img {
+  display: block;
+  margin: 5vh auto 0;
+  width: auto;
+  height: 20vh;
+}
+
 .wrap, .wrap2 {
   padding: 5vh auto auto auto;
   height: auto; /* Adjusted for mobile */
@@ -228,6 +235,10 @@ h2 strong {
 @media only screen and (max-width: 768px) {
   body {
     background-image: url('../assets/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL2hpcHBvdW5pY29ybl9waG90b19vZl9waW5lX2ZvcmVzdF93YWxscGFwZXJfNjM1MThjMWEtOWRiOC00OGMxLWI5NzMtOTg0YTY2YTM2NWExXzEuanBn.webp');
+  }
+
+  img {
+    height: 15vh;
   }
 
   h1 {
