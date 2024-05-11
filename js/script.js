@@ -2,6 +2,9 @@
 var countDownDate = new Date("June 10, 2024").getTime();
 var countDownDate2 = new Date("August 12, 2024").getTime();
 
+var days, hours, minutes;
+var secondDays, secondHours, secondMinutes;
+
 function countdown1() {
     // Initialize variables to hold the previous values
     var prevDays1 = -1,
@@ -24,10 +27,10 @@ function countdown1() {
     var distance = countDownDate - now;
         
         // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Convert days to a string with 3 digits if necessary
         var daysStr = days.toString().padStart(3, '0');
@@ -115,13 +118,13 @@ function countdown2() {
         var distance = countDownDate2 - now;
         
         // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        secondDays = Math.floor(distance / (1000 * 60 * 60 * 24));
+        secondHours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        secondMinutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        secondSeconds = Math.floor((distance % (1000 * 60)) / 1000);
     
         // Convert days to a string with 3 digits if necessary
-        var daysStr = days.toString().padStart(3, '0');
+        var daysStr = secondDays.toString().padStart(3, '0');
     
         // Animate days if they have changed
         var days1 = parseInt(daysStr.charAt(0));
@@ -142,8 +145,8 @@ function countdown2() {
         }
     
         // Animate hours if they have changed
-        var hours1 = Math.floor(hours / 10);
-        var hours2 = hours % 10;
+        var hours1 = Math.floor(secondHours / 10);
+        var hours2 = secondHours % 10;
         if (hours1 !== prevHours1) {
             animateFigure($('.2hours-1'), hours1);
             prevHours1 = hours1;
@@ -154,8 +157,8 @@ function countdown2() {
         }
     
         // Animate minutes if they have changed
-        var minutes1 = Math.floor(minutes / 10);
-        var minutes2 = minutes % 10;
+        var minutes1 = Math.floor(secondMinutes / 10);
+        var minutes2 = secondMinutes % 10;
         if (minutes1 !== prevMinutes1) {
             animateFigure($('.2min-1'), minutes1);
             prevMinutes1 = minutes1;
@@ -166,8 +169,8 @@ function countdown2() {
         }
     
         // Animate seconds if they have changed
-        var seconds1 = Math.floor(seconds / 10);
-        var seconds2 = seconds % 10;
+        var seconds1 = Math.floor(secondSeconds / 10);
+        var seconds2 = secondSeconds % 10;
         if (seconds1 !== prevSeconds1) {
             animateFigure($('.2sec-1'), seconds1);
             prevSeconds1 = seconds1;
@@ -213,6 +216,82 @@ function animateFigure($el, value) {
         ease: Quart.easeOut,
         clearProps: 'all'
     });
+}
+
+// Function to handle sharing for the first countdown
+document.querySelector(".shareBtn").addEventListener("click", function() {
+    shareCountdown('.days-', '.hours-', '.min-', days, hours, minutes, "assets/west-countdown.png", "#3C7CB2");
+});
+
+// Function to handle sharing for the second countdown
+document.querySelector(".shareBtn2").addEventListener("click", function() {
+    shareCountdown('.2days-', '.2hours-', '.2min-', secondDays, secondHours, secondMinutes, "assets/east-countdown.png", "#FFBD59");
+});
+
+// Function to share countdown image
+function shareCountdown(daysClass, hoursClass, minutesClass, days, hours, minutes, imagePath, textColor) {
+    // Create a new canvas element
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext("2d");
+
+    // Load the image
+    var img = new Image();
+    img.onload = function() {
+        // Set canvas dimensions to match the image dimensions
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        // Draw the image on the canvas
+        ctx.drawImage(img, 0, 0);
+
+        // Wait for the font to load
+        document.fonts.load("1em 'peace-sans'").then(function() {
+            // Add text on top of the image
+            ctx.font = "80px 'peace-sans', sans-serif";
+            ctx.fillStyle = textColor;
+
+            // Center coordinates for each container
+            var centers = [
+                { x: 359, y: 624 },
+                { x: 539, y: 624 },
+                { x: 722, y: 624 }
+            ];
+
+            // If the value is only one number, add a 0 infront
+            if (days.toString().length <= 1) {
+                days = "0" + days;
+            }
+            if (hours.toString().length <= 1) {
+                hours = "0" + hours;
+            }
+            if (minutes.toString().length <= 1) {
+                minutes = "0" + minutes;
+            }
+
+            var texts = [days, hours, minutes];
+
+            // Draw each text centered in its respective container
+            for (var i = 0; i < centers.length; i++) {
+                var text = texts[i];
+                var textWidth = ctx.measureText(text).width;
+                var centerX = centers[i].x - (textWidth / 2);
+                var centerY = centers[i].y + 30;
+
+                // Draw text at the calculated center
+                ctx.fillText(text, centerX, centerY);
+            }
+
+            // Convert canvas to data URL
+            var dataURL = canvas.toDataURL();
+
+            // Open the data URL in a new tab
+            var newTab = window.open();
+            newTab.document.write('<img src="' + dataURL + '" />');
+        });
+    };
+
+    // Set the image source
+    img.src = imagePath;
 }
 
 countdown1();
