@@ -15,6 +15,7 @@ This is for easy changes based on whichever camp is closest, just use that direc
 ## How to use
 
 When the camp date changes, simply open the **"Footprint-Countdown-West-First\js\script.js"**
+
 All thats required is changing the dates in line 1 and 2 of the code
 ```
 var countDownDate = new Date("{date}").getTime();
