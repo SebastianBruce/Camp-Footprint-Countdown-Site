@@ -12,6 +12,11 @@ body {
   background-repeat: no-repeat;
 }
 
+/* Camp content styles */
+.camp-content {
+  margin-bottom: 10vh;
+}
+
 /* Image Styles */
 .header-link {
   display: flex;
@@ -50,6 +55,11 @@ img {
 /* iFrame Styles */
 iframe {
   border-radius: 20px;
+}
+
+/* Link styles */
+.link {
+  display: none;
 }
 
 /* Heading Styles */
