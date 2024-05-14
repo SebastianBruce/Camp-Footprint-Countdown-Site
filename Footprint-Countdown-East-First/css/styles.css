@@ -7,7 +7,7 @@
 
 /* Body Styles */
 body {
-  background-image: url('../assets/580048-fog-foggy-forest.jpg');
+  background-image: url('../assets/images/580048-fog-foggy-forest.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -353,7 +353,7 @@ h2 {
 /* Mobile Styles */
 @media only screen and (max-width: 768px) {
   body {
-    background-image: url('../assets/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL2hpcHBvdW5pY29ybl9waG90b19vZl9waW5lX2ZvcmVzdF93YWxscGFwZXJfNjM1MThjMWEtOWRiOC00OGMxLWI5NzMtOTg0YTY2YTM2NWExXzEuanBn.webp');
+    background-image: url('../assets/images/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL2hpcHBvdW5pY29ybl9waG90b19vZl9waW5lX2ZvcmVzdF93YWxscGFwZXJfNjM1MThjMWEtOWRiOC00OGMxLWI5NzMtOTg0YTY2YTM2NWExXzEuanBn.webp');
   }
 
   img {

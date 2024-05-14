@@ -1,6 +1,8 @@
 // Set the date we're counting down to
-var countDownDate = new Date("June 10, 2024").getTime();
-var countDownDate2 = new Date("August 12, 2024").getTime();
+var westDate = "June 10, 2024";
+var eastDate = "August 12, 2024";
+var countDownDate = new Date(westDate).getTime();
+var countDownDate2 = new Date(eastDate).getTime();
 
 var days, hours, minutes;
 var secondDays, secondHours, secondMinutes;
@@ -220,12 +222,12 @@ function animateFigure($el, value) {
 
 // Function to handle sharing for the first countdown
 document.querySelector(".shareBtn").addEventListener("click", function() {
-    shareCountdown('.days-', '.hours-', '.min-', days, hours, minutes, "assets/west-countdown.png", "#3C7CB2");
+    shareCountdown('.days-', '.hours-', '.min-', days, hours, minutes, "assets/images/west-countdown.png", "#3C7CB2");
 });
 
 // Function to handle sharing for the second countdown
 document.querySelector(".shareBtn2").addEventListener("click", function() {
-    shareCountdown('.2days-', '.2hours-', '.2min-', secondDays, secondHours, secondMinutes, "assets/east-countdown.png", "#FFBD59");
+    shareCountdown('.2days-', '.2hours-', '.2min-', secondDays, secondHours, secondMinutes, "assets/images/east-countdown.png", "#FFBD59");
 });
 
 // Function to share countdown image
@@ -247,7 +249,11 @@ function shareCountdown(daysClass, hoursClass, minutesClass, days, hours, minute
         // Wait for the font to load
         document.fonts.load("1em 'peace-sans'").then(function() {
             // Add text on top of the image
-            ctx.font = "80px 'peace-sans', sans-serif";
+            if (days.toString().length > 2) {
+                ctx.font = "70px 'peace-sans', sans-serif";
+            } else {
+                ctx.font = "80px 'peace-sans', sans-serif";
+            }
             ctx.fillStyle = textColor;
 
             // Center coordinates for each container
