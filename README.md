@@ -22,4 +22,5 @@ var westDate = {date};
 var eastDate = {date};
 ```
 Also ensure that you update the countdown images, a link to the canva template can be found in **assets\canvalink.txt**
+
 Be sure to use the corresponding version for whichever camp is next
