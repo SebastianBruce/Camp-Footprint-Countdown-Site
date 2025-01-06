@@ -1,6 +1,6 @@
 // Set the date we're counting down to
-var westDate = "June 10, 2024";
-var eastDate = "August 12, 2024";
+var westDate = "June 9, 2025";
+var eastDate = "August 11, 2025";
 var countDownDate = new Date(westDate).getTime();
 var countDownDate2 = new Date(eastDate).getTime();
 
